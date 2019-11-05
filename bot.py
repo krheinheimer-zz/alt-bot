@@ -1,5 +1,6 @@
 import discord
 from sheets import *
+from setup import token, SPREADSHEET_ID, RANGE_NAME, FIELDS
 
 client = discord.Client()
 sheet = Sheets()
@@ -17,9 +18,9 @@ async def on_message(message):
 
     # Command to insert data to excel
     if message.content.startswith('!add'):
-        SPREADSHEET_ID = '1D6Mq_Y9OS17GH3Dp8VCsoRmCISmGG21o2L_AL0h4Tw4'  # Add ID here
-        RANGE_NAME = 'A2'
-        FIELDS = 3  # main/alt/notes
+        SPREADSHEET_ID  # Add ID here
+        RANGE_NAME
+        FIELDS  # main/alt/notes
 
 
     msg = message.content[4:]
@@ -35,4 +36,4 @@ async def on_message(message):
         await message.channel.send(
             'Error: You need to add {0} fields, meaning it can only have {1} comma.'.format(FIELDS, FIELDS - 1))
 
-client.run('NjQwOTIwNDc3Mzc1OTIyMTc2.XcA2WQ.q1ohtSAznQiPQdm-MhK3tCIeQZM')
+client.run(token)
